@@ -42,6 +42,8 @@ if uploaded_file is not None:
     st.download_button(label='Download CSV', data=df.to_csv(), mime='text/csv')
     st.header('**Report**')
     st_profile_report(pr)
+    export=pr.to_html()
+    st.download_button(label="Download Full Report", data=export, file_name='report.html')
 else:
     st.info('Awaiting for CSV file to be uploaded.')
     if st.button('Press to use Example Dataset'):
